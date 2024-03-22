@@ -15,10 +15,10 @@ export class PedidosService {
     return nuevoPedido.save();
   }
   todos(): Promise<IPedidos[]> {
-    return this.model.find().populate('ID_Pizza, ID_Cliente');
+    return this.model.find();
   }
   uno(id: string): Promise<IPedidos> {
-    return this.model.findById(id).populate('ID_Pizza, ID_Cliente');
+    return this.model.findById(id);
   }
   actualizar(id: string, pedidosDTO: PedidosDTO): Promise<IPedidos> {
     return this.model.findByIdAndUpdate(id, pedidosDTO, { new: true });
@@ -52,11 +52,3 @@ export class PedidosService {
       .populate('clientes');
   }
 }
-
-
-
-
-/*import { Injectable } from '@nestjs/common';
-
-@Injectable()
-export class PedidosService {}*/

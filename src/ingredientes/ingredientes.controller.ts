@@ -40,7 +40,7 @@ import { IngredientesDTO } from './dto/ingredientes.dto';
     ) {
       const pizzas = await this.pizzasService.uno(pizzasId);
       if (!pizzas)
-        throw new HttpException('Passenger not found', HttpStatus.NOT_FOUND);
+        throw new HttpException('Pizzas not found', HttpStatus.NOT_FOUND);
       return this.ingredientesService.insertarPizza(ingredientesId, pizzasId);
     }
   }

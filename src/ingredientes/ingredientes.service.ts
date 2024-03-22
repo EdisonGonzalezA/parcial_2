@@ -11,8 +11,8 @@ export class IngredientesService {
     @InjectModel(INGREDIENTES.name) private readonly model: Model<IIngredientes>,
   ) {}
   insertar(ingredientesDTO: IngredientesDTO): Promise<IIngredientes> {
-    const nuevoIngredientre = new this.model(ingredientesDTO);
-    return nuevoIngredientre.save();
+    const nuevoIngrediente = new this.model(ingredientesDTO);
+    return nuevoIngrediente.save();
   }
   todos(): Promise<IIngredientes[]> {
     return this.model.find().populate('pizzas');
