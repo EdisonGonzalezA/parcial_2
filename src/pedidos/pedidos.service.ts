@@ -15,10 +15,10 @@ export class PedidosService {
     return nuevoPedido.save();
   }
   todos(): Promise<IPedidos[]> {
-    return this.model.find();
+    return this.model.find().populate('pizzas').populate('clientes');
   }
   uno(id: string): Promise<IPedidos> {
-    return this.model.findById(id);
+    return this.model.findById(id).populate('pizzas').populate('clientes');
   }
   actualizar(id: string, pedidosDTO: PedidosDTO): Promise<IPedidos> {
     return this.model.findByIdAndUpdate(id, pedidosDTO, { new: true });
